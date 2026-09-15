@@ -15,5 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image and run
-      run: docker build -t ecom-app:$(date +%s) 
-           docker compose up -d 
+      run: |
+            docker build -t ecom-app:$(date +%s) 
+             
+             docker compose up -d 
