@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "dev-env" ]
+  pull_request:
+    branches: ["dev-env"]
+  
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker compose build --no-cache docker compose up--tag ecom-app:$(date +%s)
