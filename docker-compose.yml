@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: e-mart:latest
+    container_name: e-mart
+    ports:
+      - "8080:80"
+    restart: unless-stopped
