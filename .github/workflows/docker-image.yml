@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker ci
 
 on:
   push:
@@ -14,5 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker compose build --no-cache docker compose up--tag ecom-app:$(date +%s)
+    - name: Build the Docker image and run
+      run: docker build -t ecom-app:$(date +%s) 
+           docker compose up -d 
