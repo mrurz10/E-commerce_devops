@@ -6,11 +6,15 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
+    setCartItems((prev) =>
+      prev.some((cartItem) => cartItem.id === item.id)
+        ? prev
+        : [...prev, item]
+    );
   };
 
   const removeFromCart = (item) => {
-    setCartItems(cartItems.filter((apple) => apple !== item));
+    setCartItems((prev) => prev.filter((cartItem) => cartItem.id !== item.id));
   };
 
   return (

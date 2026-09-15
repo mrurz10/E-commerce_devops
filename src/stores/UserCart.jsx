@@ -7,9 +7,7 @@ import Navbar from './components/Navbar';
 
 const UserCart = () => {
 
-    const {cartItems, addToCart, removeFromCart} = useCart()
-
-    console.log(cartItems);
+    const {cartItems, removeFromCart} = useCart()
 
   return (
 <>
